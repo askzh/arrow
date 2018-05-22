@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>射箭游戏</title>
+    <style>
+        #arrow{
+            background:url("../arrow/assets/image/bg.png");
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <div class="bg">
+
+    </div>
+    <canvas id="arrow" width="1920px" height="1080px">
+
+    </canvas>
+
+
+    <script src="assets/js/polyfill.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/arrow.js"></script>
+    <script>
+    
+        var arrowCanvas,
+            Urls = {
+                lemonImg: "../arrow/assets/image/play/lemon.png",
+                arrowSImg: "../arrow/assets/image/play/arrow-s.png",
+                arrowMImg: "../arrow/assets/image/play/arrow-m.png",
+                arrowHImg: "../arrow/assets/image/play/arrow-h.png",
+                bowImg: "../arrow/assets/image/play/bow.png",
+                winImg: "../arrow/assets/image/win.png",
+                loseImg: "../arrow/assets/image/lose.png",
+                beginImg: "../arrow/assets/image/begin.png",
+                handImg: "../arrow/assets/image/play/hand.png",
+                text0: "../arrow/assets/image/play/text0.png",
+                text1: "../arrow/assets/image/play/text1.png",
+                text2: "../arrow/assets/image/play/text2.png",
+                text3: "../arrow/assets/image/play/text3.png",
+                text4: "../arrow/assets/image/play/text4.png",
+                text5: "../arrow/assets/image/play/text5.png",
+                logoImg: "../arrow/assets/image/logo.png",
+                ruleImg: "../arrow/assets/image/play/rules.png",
+                ruleTextImg: "../arrow/assets/image/play/rulestext.png",
+            },
+
+            Images = {};
+
+        var imgsPr = Util.preloadImg( Urls, Images );
+
+        Promise.all(imgsPr).then(function(){
+            // console.log(Images);
+            
+            arrowCanvas = $("#arrow").Archery("arrow", Images);
+
+            arrowCanvas.init(); 
+
+        })
+ 
+    </script>
+</body>
+</html>
